@@ -13,6 +13,7 @@
   <header id="header">
     <a class="title-link" href="/basics/">
       <h1 class="title">GreenSock</h1>
+      <h1 class="subtitle">Hey</h1>
     </a>
 
     <p>Set callback functions as properties</p>
@@ -128,14 +129,17 @@
       });
 
       function onStart() {
+        console.log('A animação começou');
         subtitle.innerHTML = 'YEY! GREENSOCK É 10!';
       }
 
       function onUpdate() {
+        console.log('A animação atualizou');
         title.innerHTML = i++;
       }
 
       function hideItems() {
+        console.log('A animação do título acabou, vai começar a dos itens!');
         TweenMax.to(items, .5, {
           opacity: 0
         });
