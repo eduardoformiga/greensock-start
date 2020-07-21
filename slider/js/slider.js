@@ -16,8 +16,8 @@ const Slider = {
     const texts = item.querySelectorAll("p");
     const timeline = new TimelineMax();
 
-    TweenMax.set(item, { scale: 0.9 });
-    TweenMax.set(item, { left: "-100vw" });
+    gsap.set(item, { scale: 0.9 });
+    gsap.set(item, { left: "-100vw" });
 
     timeline
       .to(item, 0.5, { left: 0, delay: 1 })

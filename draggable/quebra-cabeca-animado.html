@@ -384,7 +384,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/Draggable.min.js"></script>
 
   <script>
-    TweenMax.to('#balloon-innards', {
+    gsap.to('#balloon-innards', {
       y: 60,
       repeat: -1,
       yoyo: true,
@@ -392,7 +392,7 @@
       ease: Power1.easeInOut
     });
 
-    TweenMax.to('.piece', {
+    gsap.to('.piece', {
       x: random,
       y: random,
       delay: 1,

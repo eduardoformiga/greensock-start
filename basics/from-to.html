@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TweenMax.fromTo()</title>
+  <title>gsap.fromTo()</title>
   <link rel="stylesheet" href="../css/main.css">
 </head>
 
@@ -19,7 +19,7 @@
 
     <pre id="code">
       <code>
-        TweenMax.fromTo(target, time, { From properties }, { To properties })
+        gsap.fromTo(target, time, { From properties }, { To properties })
       </code>
     </pre>
 
@@ -111,7 +111,7 @@
       const items = document.querySelectorAll('.item');
       const title = document.querySelector('.title');
 
-      TweenMax.fromTo(title, 5, {
+      gsap.fromTo(title, 5, {
         x: -500
       }, {
         x: 500

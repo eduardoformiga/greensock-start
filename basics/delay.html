@@ -111,11 +111,11 @@
       const items = document.querySelectorAll('.item');
       const title = document.querySelector('.title');
 
-      TweenMax.from(title, 2, {
+      gsap.from(title, 2, {
         x: -500
       });
 
-      TweenMax.to(title, 2, {
+      gsap.to(title, 2, {
         x: 500,
         delay: 3
       });

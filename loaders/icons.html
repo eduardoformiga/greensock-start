@@ -128,7 +128,7 @@
   <script>
     const money = document.getElementById('money');
 
-    TweenMax.from(money, {
+    gsap.from(money, {
       scaleY: .8,
       transformOrigin: 'bottom center',
       ease: Power0.easeOut,
@@ -172,7 +172,7 @@
     const whell2 = document.getElementById('wheel-2');
     const whell3 = document.getElementById('wheel-3');
 
-    TweenMax.to([whell1, whell2, whell3], 2, {
+    gsap.to([whell1, whell2, whell3], 2, {
       transformOrigin: 'center center',
       rotation: 360,
       ease: Power0.easeOut,

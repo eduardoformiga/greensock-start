@@ -112,7 +112,7 @@
       const items = document.querySelectorAll('.item');
       const title = document.querySelector('.title');
 
-      TweenMax.fromTo(title, 1, {
+      gsap.fromTo(title, 1, {
         x: -600
       }, {
         x: 600,
@@ -120,7 +120,7 @@
         yoyo: true
       });
 
-      TweenMax.from(items, .5, {
+      gsap.from(items, .5, {
         scale: 0,
         repeat: -1,
         yoyo: true

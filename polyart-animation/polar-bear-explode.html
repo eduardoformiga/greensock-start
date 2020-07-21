@@ -201,12 +201,12 @@
       const xPos = Math.random() * width - width / 2;
       const yPos = Math.random() * height - height / 2;
 
-      TweenMax.set(polygon, {
+      gsap.set(polygon, {
         x: xPos,
         y: yPos
       });
 
-      TweenMax.to(polygon, 2, {
+      gsap.to(polygon, 2, {
         x: 0,
         y: 0,
         opacity: 1,

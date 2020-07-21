@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TweenMax.to()</title>
+  <title>gsap.to()</title>
   <link rel="stylesheet" href="../css/main.css">
 </head>
 
@@ -19,7 +19,7 @@
 
     <pre id="code">
         <code>
-            TweenMax.to(target, time, { properties })
+            gsap.to(target, time, { properties })
         </code>
     </pre>
 
@@ -108,15 +108,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
     <script>
-      const items = document.querySelectorAll('.item');
-      const title = document.querySelector('.title');
-
-      TweenMax.to(title, 3, {
+      gsap.to('.title', {
         x: 500,
-        opacity: 0
+        opacity: 0,
+        duration: 3
       });
 
-      TweenMax.to(items, 1, {
+      gsap.to('.item', 1, {
         rotation: 360,
         scale: .4
       })
