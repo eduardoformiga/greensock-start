@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slide in Panels</title>
+  <link rel="stylesheet" href="/css/overlap.css">
+  <link href='//fonts.googleapis.com/css?family=Signika+Negative:300,400,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+  <h1 class="header-section">Scroll to see the before/after</h1>
+
+  <section class="comparisonSection">
+    <div class="comparisonImage beforeImage">
+      <img src="/images/beforeafter/before.jpg" alt="before">
+    </div>
+    <div class="comparisonImage afterImage">
+      <img src="/images/beforeafter/after.jpg" alt="after">
+    </div>
+  </section>
+
+  <h1 class="header-section">What did you think?</h1>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".comparisonSection").forEach(section => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "center center",
+          // makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
+          end: () => "+=" + section.offsetWidth,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          markers: true
+        },
+        defaults: {
+          ease: "none"
+        }
+      });
+      // animate the container one way...
+      tl.fromTo(section.querySelector(".afterImage"), {
+          xPercent: 100,
+          x: 0
+        }, {
+          xPercent: 0
+        })
+        // ...and the image the opposite way (at the same time)
+        .fromTo(section.querySelector(".afterImage img"), {
+          xPercent: -100,
+          x: 0
+        }, {
+          xPercent: 0
+        }, 0);
+    });
+
+  </script>
+</body>
+
+</html>
