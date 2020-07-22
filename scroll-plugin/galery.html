@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slide in Panels</title>
+  <link rel="stylesheet" href="/css/galery.css">
+  <link href='//fonts.googleapis.com/css?family=Signika+Negative:300,400,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+  <header>
+    <h1>Scroll down to see a photo gallery being revealed</h1>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer centerPiece">
+        <div class="gridBlock centerBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+      <div class="gridLayer">
+        <div class="gridBlock"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h1>Some additional content</h1>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.timeline({
+        scrollTrigger: {
+          trigger: ".container",
+          start: "top 100",
+          end: () => "+=" + document.querySelector('.container').offsetWidth,
+          scrub: true,
+          markers: true,
+          pin: ".grid",
+          anticipatePin: 1
+        }
+      })
+      .set(".gridBlock:not(.centerBlock)", {
+        autoAlpha: 0
+      })
+      .to(".gridBlock:not(.centerBlock)", {
+        duration: 0.1,
+        autoAlpha: 1
+      }, 0.001)
+      .from(".gridLayer", {
+        scale: 3.3333,
+        ease: "none",
+      });
+
+
+    // Images to make it look better, not related to the effect
+    const size = Math.max(innerWidth, innerHeight);
+    gsap.set('.gridBlock', {
+      backgroundImage: i => `url(https://picsum.photos/${size}/${size}?random=${i})`
+    });
+
+    const bigImg = new Image;
+    bigImg.addEventListener("load", function () {
+      gsap.to(".centerBlock", {
+        autoAlpha: 1,
+        duration: 0.5
+      });
+    });
+
+    bigImg.src = `https://picsum.photos/${size}/${size}?random=50`;
+
+  </script>
+</body>
+
+</html>
